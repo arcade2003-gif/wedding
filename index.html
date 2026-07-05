@@ -17,6 +17,7 @@
     overflow-x: hidden;
   }
 
+  /* HERO */
   .hero {
     position: relative;
     height: 100svh;
@@ -28,7 +29,6 @@
     justify-content: flex-end;
     padding-bottom: 60px;
   }
-
   .hero-img {
     position: absolute;
     inset: 0;
@@ -38,20 +38,17 @@
     object-position: center 20%;
     filter: brightness(0.75);
   }
-
   .hero-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(to bottom, transparent 40%, rgba(30,22,16,0.65) 100%);
   }
-
   .hero-content {
     position: relative;
     text-align: center;
     color: #fff;
     z-index: 1;
   }
-
   .hero-names {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2.8rem, 10vw, 4.2rem);
@@ -60,7 +57,6 @@
     line-height: 1.1;
     text-shadow: 0 2px 20px rgba(0,0,0,0.4);
   }
-
   .hero-amp {
     font-style: italic;
     opacity: 0.85;
@@ -68,7 +64,6 @@
     display: block;
     margin: 4px 0;
   }
-
   .hero-date {
     margin-top: 18px;
     font-size: 0.85rem;
@@ -78,6 +73,7 @@
     font-family: 'Cormorant Garamond', serif;
   }
 
+  /* DIVIDER */
   .divider {
     display: flex;
     align-items: center;
@@ -93,13 +89,13 @@
   }
   .divider-icon { color: #c8b49a; font-size: 1rem; }
 
+  /* SECTION */
   .section {
     padding: 50px 28px;
     max-width: 480px;
     margin: 0 auto;
     text-align: center;
   }
-
   .section-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.5rem;
@@ -108,7 +104,6 @@
     color: #7a5c40;
     margin-bottom: 20px;
   }
-
   .message {
     font-size: 0.87rem;
     line-height: 2;
@@ -116,6 +111,7 @@
     word-break: keep-all;
   }
 
+  /* GALLERY */
   .gallery {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -124,19 +120,69 @@
     max-width: 600px;
     margin: 0 auto;
   }
-
   .gallery img {
     width: 100%;
     aspect-ratio: 3/4;
     object-fit: cover;
     display: block;
+    cursor: pointer;
+    transition: opacity 0.2s;
   }
-
+  .gallery img:hover { opacity: 0.88; }
   .gallery img:first-child {
     grid-column: 1 / -1;
     aspect-ratio: 4/3;
   }
 
+  /* 4컷 카카오 사진 */
+  .kakao-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    padding: 6px 6px 0;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .kakao-strip img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .kakao-strip img:hover { opacity: 0.88; }
+
+  /* LIGHTBOX */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightbox.active { display: flex; }
+  .lightbox img {
+    max-width: 95vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 2px;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    line-height: 1;
+    opacity: 0.8;
+  }
+
+  /* INFO CARD */
   .info-card {
     background: #fff;
     border-radius: 2px;
@@ -145,7 +191,6 @@
     max-width: 440px;
     margin-inline: auto;
   }
-
   .info-row {
     display: flex;
     align-items: flex-start;
@@ -153,30 +198,12 @@
     margin-bottom: 22px;
     text-align: left;
   }
-
   .info-row:last-child { margin-bottom: 0; }
+  .info-icon { font-size: 1.1rem; margin-top: 2px; flex-shrink: 0; color: #a07850; }
+  .info-label { font-size: 0.7rem; letter-spacing: 0.15em; color: #a07850; margin-bottom: 4px; font-family: 'Cormorant Garamond', serif; }
+  .info-value { font-size: 0.88rem; line-height: 1.7; color: #3a3028; }
 
-  .info-icon {
-    font-size: 1.1rem;
-    margin-top: 2px;
-    flex-shrink: 0;
-    color: #a07850;
-  }
-
-  .info-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    color: #a07850;
-    margin-bottom: 4px;
-    font-family: 'Cormorant Garamond', serif;
-  }
-
-  .info-value {
-    font-size: 0.88rem;
-    line-height: 1.7;
-    color: #3a3028;
-  }
-
+  /* MAP */
   #map {
     width: calc(100% - 40px);
     max-width: 440px;
@@ -186,10 +213,8 @@
     border: 1px solid #e8ddd0;
     border-radius: 2px;
   }
-
   .map-btn {
     display: block;
-    margin: 14px auto 0;
     padding: 12px 32px;
     background: #3a3028;
     color: #f0e8db;
@@ -201,10 +226,11 @@
     text-align: center;
     width: calc(100% - 40px);
     max-width: 440px;
-    margin-inline: auto;
+    margin: 14px auto 0;
     display: block;
   }
 
+  /* TRANSPORT */
   .parking-info {
     background: #f5f0ea;
     border-left: 3px solid #c8b49a;
@@ -214,27 +240,10 @@
     text-align: left;
     border-radius: 0 2px 2px 0;
   }
+  .parking-title { font-size: 0.72rem; letter-spacing: 0.2em; color: #a07850; margin-bottom: 8px; font-family: 'Cormorant Garamond', serif; }
+  .parking-text { font-size: 0.82rem; line-height: 1.8; color: #5a4838; }
 
-  .parking-title {
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    color: #a07850;
-    margin-bottom: 8px;
-    font-family: 'Cormorant Garamond', serif;
-  }
-
-  .parking-text {
-    font-size: 0.82rem;
-    line-height: 1.8;
-    color: #5a4838;
-  }
-
-  .transport {
-    padding: 0 20px;
-    max-width: 440px;
-    margin: 20px auto 0;
-  }
-
+  .transport { padding: 0 20px; max-width: 440px; margin: 20px auto 0; }
   .transport-item {
     display: flex;
     align-items: flex-start;
@@ -242,26 +251,97 @@
     padding: 14px 0;
     border-bottom: 1px solid #ede5da;
   }
-
   .transport-item:last-child { border-bottom: none; }
-
-  .transport-badge {
-    padding: 3px 10px;
-    border-radius: 20px;
-    font-size: 0.7rem;
-    letter-spacing: 0.05em;
-    flex-shrink: 0;
-  }
-
+  .transport-badge { padding: 3px 10px; border-radius: 20px; font-size: 0.7rem; letter-spacing: 0.05em; flex-shrink: 0; }
   .badge-subway { background: #764ba2; color: #fff; }
   .badge-bus { background: #4a7c59; color: #fff; }
+  .transport-desc { font-size: 0.82rem; line-height: 1.7; color: #5a4838; }
 
-  .transport-desc {
-    font-size: 0.82rem;
-    line-height: 1.7;
-    color: #5a4838;
+  /* 마음 전할 곳 (계좌) */
+  .account-wrap {
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 0 20px;
   }
+  .account-card {
+    background: #fff;
+    border: 1px solid #e8ddd0;
+    border-radius: 2px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .account-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .account-header-left { display: flex; align-items: center; gap: 10px; }
+  .account-tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    color: #a07850;
+    background: #f5f0ea;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .account-name { font-size: 0.88rem; color: #3a3028; }
+  .account-arrow {
+    font-size: 0.8rem;
+    color: #c8b49a;
+    transition: transform 0.25s;
+  }
+  .account-arrow.open { transform: rotate(180deg); }
+  .account-body {
+    display: none;
+    padding: 0 20px 18px;
+    border-top: 1px solid #f0ebe3;
+  }
+  .account-body.open { display: block; }
+  .account-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f5f0ea;
+  }
+  .account-row:last-child { border-bottom: none; }
+  .account-info { font-size: 0.82rem; line-height: 1.6; color: #5a4838; }
+  .account-bank { font-size: 0.7rem; color: #a07850; margin-bottom: 2px; }
+  .copy-btn {
+    padding: 6px 14px;
+    background: #f5f0ea;
+    border: 1px solid #e0d5c5;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    color: #7a5c40;
+    cursor: pointer;
+    font-family: 'Noto Serif KR', serif;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .copy-btn:active { background: #ebe3d5; }
+  .copy-toast {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(58,48,40,0.9);
+    color: #f0e8db;
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 9998;
+    pointer-events: none;
+  }
+  .copy-toast.show { opacity: 1; }
 
+  /* FOOTER */
   .footer {
     padding: 50px 28px 60px;
     text-align: center;
@@ -275,6 +355,16 @@
 </head>
 <body>
 
+<!-- 라이트박스 -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<!-- 복사 토스트 -->
+<div class="copy-toast" id="copyToast">계좌번호가 복사되었습니다</div>
+
+<!-- HERO -->
 <section class="hero">
   <img class="hero-img" src="LDS_0266.jpg" alt="웨딩사진">
   <div class="hero-overlay"></div>
@@ -288,6 +378,7 @@
   </div>
 </section>
 
+<!-- 인사말 -->
 <section class="section">
   <div class="divider"><span class="divider-icon">✦</span></div>
   <p class="section-title">INVITATION</p>
@@ -300,15 +391,21 @@
   </p>
 </section>
 
-<section style="margin-bottom: 8px;">
+<!-- 갤러리 -->
+<section style="margin-bottom: 0;">
   <div class="gallery">
-    <img src="LDS_0483.jpg" alt="웨딩사진">
-    <img src="2-LDS_0994-수정.jpg" alt="웨딩사진">
-    <img src="5-LDS_0690-수정.jpg" alt="웨딩사진">
-    <img src="LDS_0687.jpg" alt="웨딩사진">
+    <img src="LDS_0483.jpg" alt="웨딩사진" onclick="openLightbox(this.src)">
+    <img src="2-LDS_0994-수정.jpg" alt="웨딩사진" onclick="openLightbox(this.src)">
+    <img src="LDS_0687.jpg" alt="웨딩사진" onclick="openLightbox(this.src)">
+  </div>
+  <!-- 카카오 4컷 -->
+  <div class="kakao-strip">
+    <img src="밑사진1.jpg" alt="웨딩사진" onclick="openLightbox(this.src)">
+    <img src="밑사진2.jpg" alt="웨딩사진" onclick="openLightbox(this.src)">
   </div>
 </section>
 
+<!-- 예식 안내 -->
 <section class="section" style="padding-top: 30px; padding-bottom: 20px;">
   <div class="divider"><span class="divider-icon">✦</span></div>
   <p class="section-title">예식 안내</p>
@@ -337,6 +434,7 @@
   🗺️ 카카오 지도로 보기
 </a>
 
+<!-- 오시는 길 -->
 <section class="section" style="padding-bottom: 10px;">
   <p class="section-title" style="font-size:1.1rem; margin-bottom:8px;">오시는 길</p>
 </section>
@@ -361,6 +459,60 @@
   </div>
 </div>
 
+<!-- 마음 전할 곳 -->
+<section class="section" style="padding-bottom: 20px;">
+  <div class="divider"><span class="divider-icon">✦</span></div>
+  <p class="section-title">마음 전할 곳</p>
+  <p class="message" style="margin-bottom: 0;">
+    직접 전하지 못하는 분들을 위해<br>계좌를 안내해 드립니다.
+  </p>
+</section>
+
+<div class="account-wrap">
+
+  <!-- 신랑측 -->
+  <div class="account-card">
+    <div class="account-header" onclick="toggleAccount(this)">
+      <div class="account-header-left">
+        <span class="account-tag">신랑측</span>
+        <span class="account-name">이윤성</span>
+      </div>
+      <span class="account-arrow">▼</span>
+    </div>
+    <div class="account-body">
+      <div class="account-row">
+        <div class="account-info">
+          <div class="account-bank">기업은행</div>
+          258-025932-02-024<br>이규삼 (신랑 부)
+        </div>
+        <button class="copy-btn" onclick="copyAccount('258-025932-02-024')">복사</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 신부측 -->
+  <div class="account-card">
+    <div class="account-header" onclick="toggleAccount(this)">
+      <div class="account-header-left">
+        <span class="account-tag">신부측</span>
+        <span class="account-name">이수현</span>
+      </div>
+      <span class="account-arrow">▼</span>
+    </div>
+    <div class="account-body">
+      <div class="account-row">
+        <div class="account-info">
+          <div class="account-bank">국민은행</div>
+          616725-93-112761<br>최용순 (신랑 모)
+        </div>
+        <button class="copy-btn" onclick="copyAccount('616725-93-112761')">복사</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 푸터 -->
 <footer class="footer">
   <p>이윤성 · 이수현</p>
   <p>2026년 8월 15일</p>
@@ -368,21 +520,47 @@
 </footer>
 
 <script>
+  // 카카오 지도
   var mapContainer = document.getElementById('map');
   var mapOption = {
     center: new kakao.maps.LatLng(37.5267, 126.8758),
     level: 3
   };
   var map = new kakao.maps.Map(mapContainer, mapOption);
-
-  var markerPosition = new kakao.maps.LatLng(37.5267, 126.8758);
-  var marker = new kakao.maps.Marker({ position: markerPosition });
+  var marker = new kakao.maps.Marker({ position: new kakao.maps.LatLng(37.5267, 126.8758) });
   marker.setMap(map);
-
   var infowindow = new kakao.maps.InfoWindow({
-    content: '<div style="padding:8px 12px; font-size:13px; font-family: sans-serif; white-space:nowrap;">📍 로프트가든 344</div>'
+    content: '<div style="padding:8px 12px;font-size:13px;font-family:sans-serif;white-space:nowrap;">📍 로프트가든 344</div>'
   });
   infowindow.open(map, marker);
+
+  // 라이트박스
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // 계좌 토글
+  function toggleAccount(header) {
+    var body = header.nextElementSibling;
+    var arrow = header.querySelector('.account-arrow');
+    body.classList.toggle('open');
+    arrow.classList.toggle('open');
+  }
+
+  // 계좌 복사
+  function copyAccount(num) {
+    navigator.clipboard.writeText(num).then(function() {
+      var toast = document.getElementById('copyToast');
+      toast.classList.add('show');
+      setTimeout(function() { toast.classList.remove('show'); }, 2000);
+    });
+  }
 </script>
 
 </body>
